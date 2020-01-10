@@ -3,5 +3,5 @@ node_js:
     - 13
 scripts:
     - npm install codecov -g
-    after_success:
+after_success:
     - codecov
