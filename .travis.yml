@@ -1,15 +1,21 @@
 language: node_js
 node_js:
     - 13
-scripts:
-    - npm install codecov -g
-after_success:
-    - codecov
+
 jobs:
   include:
     - stage: test
-      script: npm run test
-    - stage: lint
-      script: npm run lint
-    - stage: coverage
-      script: npm run cover
+      scripts:
+        - npm install -g codecov
+        - npm run lint
+        - npm run cover
+      after_success:
+        - codecov
+    - stage: build
+      scripts:
+        - npm run build
+    - stage: deploy
+      if: branch = master
+      allow_failures:
+        scripts:
+          - npm publish
