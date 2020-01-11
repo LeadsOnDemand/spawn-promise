@@ -8,7 +8,7 @@ it('Should echo "hello world" with callback', async () => {
   )
   return expect(value).toBe("hello world\n")
 })
-
+  
 it('Should error "error" with callback', async () => {
   try {
     const value = await spawnPromise(

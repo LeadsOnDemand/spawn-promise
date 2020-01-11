@@ -5,3 +5,11 @@ scripts:
     - npm install codecov -g
 after_success:
     - codecov
+jobs:
+  include:
+    - stage: test
+      script: npm run test
+    - stage: lint
+      script: npm run lint
+    - stage: coverage
+      script: npm run cover
