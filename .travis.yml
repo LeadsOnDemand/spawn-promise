@@ -5,17 +5,18 @@ node_js:
 jobs:
   include:
     - stage: test
-      scripts:
+      script:
         - npm install -g codecov
         - npm run lint
         - npm run cover
       after_success:
         - codecov
     - stage: build
-      scripts:
+      script:
         - npm run build
+  allow_failures:
     - stage: deploy
       if: branch = master
       allow_failures:
-        scripts:
+        script:
           - npm publish
