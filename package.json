@@ -31,5 +31,7 @@
     "tslint-config-prettier": "^1.18.0",
     "typescript": "^3.7.4"
   },
-  "files": ["dist"]
+  "files": [
+    "dist"
+  ]
 }
